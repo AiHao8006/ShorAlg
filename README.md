@@ -1,2 +1,1 @@
-# ShorAlg
-Simulating Shor's Algorithm with pyqpanda.
+Not need a discription now
