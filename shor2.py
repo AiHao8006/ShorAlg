@@ -60,7 +60,7 @@ def Shor_many_run(N, L=11, run_time=100):        # L: accuracy
             result_one_measure = run_one_measure_qubit(k, measure)
             measure.append(result_one_measure)
             # print(measure[k])
-        measure = G.cbits_to_cnumber(measure, n=L)
+        measure = G.cbits_to_cnumber(measure[::-1], n=L)
         return measure
 
     results_saved = []
