@@ -26,8 +26,7 @@ def qpe_1qubit(L=11):          # L: num of virtual measurement qubits
     for j in range(L):
         prog << pq.H(qubit_measure)
         # prog << pq.U1(qubit_x, (0.3*(2**j)) * np.pi).control(qubit_measure)
-        # prog << pq.CR(qubit_measure, qubit_x, (0.5*np.pi)*(2**j))
-        prog << pq.U1(qubit_x, (1.4*(2**(L-1-j))) * np.pi).control(qubit_measure)
+        prog << pq.U1(qubit_x, (0.5*(2**(L-1-j))) * np.pi).control(qubit_measure)
 
         theta_j = 0
         for k in range(j):          # k = 0, ..., k, ..., j-1       # R_{j+1}, ..., R_{j+1-k}, ..., R_2

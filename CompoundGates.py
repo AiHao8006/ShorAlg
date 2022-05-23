@@ -116,7 +116,7 @@ class CompoundGates:
         Gate_set = pq.create_empty_circuit()
         Gate_set << self.C_MULT_MOD(qubits_c, qubits_x, qubits_0, aux_qubit, cnum_a, cnum_N)
         for i in range(n):
-            Gate_set << pq.SWAP(qubits_0[i], qubits_x[i])
+            Gate_set << pq.SWAP(qubits_0[i], qubits_x[i]).control(qubits_c)
         Gate_set << self.C_MULT_MOD(qubits_c, qubits_x, qubits_0, aux_qubit, self.invert(cnum_a, cnum_N), cnum_N,
                                     inverse=True)
 
