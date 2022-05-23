@@ -48,6 +48,7 @@ def shor_alg(a, N, L=11):          # L: num of virtual measurement qubits
         prog << pq.Reset(qubit_measure)
 
     pq.finalize()
+    # print(measured_resultes)
     return G.cbits_to_cnumber(measured_resultes, n=L)
     # G.cbits_to_cnumber(measured_resultes[::-1], n=L)
 
