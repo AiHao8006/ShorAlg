@@ -49,7 +49,7 @@ def shor_alg(a, N, L=11):          # L: num of virtual measurement qubits
 
     pq.finalize()
     # print(measured_resultes)
-    return G.cbits_to_cnumber(measured_resultes, n=L)
+    return G.cbits_to_cnumber(measured_resultes, n=L) / 2**L
     # G.cbits_to_cnumber(measured_resultes[::-1], n=L)
 
 
@@ -58,14 +58,14 @@ if __name__ == "__main__":
     # nums_statistics_inverse = []
     for i in range(100):
         num = shor_alg(7, 15, 11)
-        nums_statistics.append(num / 2**11)
+        nums_statistics.append(num)
         # nums_statistics_inverse.append(num_inverse / 2**11)
         if i % 10 == 0: print("进度：{}/100".format(i))
 
     print(nums_statistics)
     # print(nums_statistics_inverse)
 
-    plt.hist(nums_statistics, bins=21, edgecolor='r', range=[0, 1])
+    plt.hist(nums_statistics, bins=41, edgecolor='r', range=[0, 1])
     plt.show()
 
     # plt.hist(nums_statistics_inverse, bins=21, edgecolor='r', range=[0, 1])
